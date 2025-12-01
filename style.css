@@ -1,0 +1,315 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s; /* Smooth theme transition */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* ---------------------------------------------------- */
+/* Theme Definitions */
+
+/* Light Theme: White and Blue mixture */
+.light-theme {
+    --primary-color: #007bff; /* Blue */
+    --secondary-color: #ffffff; /* White */
+    --text-color: #333;
+    --background-color: #f4f4f9; /* Light Gray/Off-White */
+    --card-bg: #ffffff;
+}
+
+/* Dark Theme: Black and Deep Red mixture */
+.dark-theme {
+    --primary-color: #f80404; /* Deep Red */
+    --secondary-color: #000000; /* Black */
+    --text-color: #f4f4f9;
+    --background-color: #000000; /* Dark Gray/Blackish */
+    --card-bg: #333333;
+}
+/* ---------------------------------------------------- */
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Modern Animation Page Style --- */
+#intro-animation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    animation: fadeOut 0.5s ease-in 3.5s forwards; 
+}
+
+/* Modern Title Design: Text with Gradient Effect */
+.engine-title {
+    font-size: 3.5em; 
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    
+    /* Gradient Effect setup */
+    background: linear-gradient(45deg, var(--primary-color), #ff0077, var(--primary-color));
+    background-size: 400% 400%;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* Animation for text */
+    animation: 
+        gradientShift 3s ease infinite,
+        fadeIn 1s ease-out; 
+}
+
+/* Loading Progress Bar Design */
+.loading-container {
+    width: 300px;
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    /* 4s duration for the load animation */
+    animation: loadProgress 4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+
+/* --- Homepage Navigation and Utilities --- */
+.navbar {
+    display: flex;
+    justify-content: flex-end; 
+    padding: 15px 5%;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.utility-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#datetime-display {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: var(--background-color);
+}
+
+.btn-toggle {
+    background: none;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+/* Profile Image */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* General Section Styling */
+.section {
+    padding: 50px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Project Cards */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid var(--primary-color);
+}
+
+.project-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+/* Contact Buttons (GitHub, LinkedIn) */
+.contact-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px; /* Space before the new form */
+}
+
+.contact-btn {
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 180px;
+    justify-content: center;
+}
+
+.github { background-color: #333; }
+.linkedin { background-color: #0A66C2; }
+
+
+/* --- FormSpree Contact Form Styling (Updated & Improved) --- */
+
+.form-container {
+    max-width: 600px; 
+    margin-top: 40px; 
+    padding: 30px; 
+    background-color: var(--card-bg); 
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
+}
+
+.form-container h3 {
+    color: var(--primary-color);
+    margin-bottom: 25px; 
+    font-size: 1.5em; 
+    text-align: center; 
+    border-bottom: 2px solid var(--primary-color); 
+    padding-bottom: 10px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column; /* Key Fix: Stacks inputs vertically */
+    gap: 20px; 
+}
+
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%; /* Key Fix: Ensures full width */
+    padding: 15px; 
+    border: 1px solid var(--primary-color); 
+    border-radius: 5px; 
+    font-size: 1.1em; 
+    background-color: var(--background-color); 
+    color: var(--text-color);
+    resize: vertical; 
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); 
+}
+
+.contact-form input[type="email"]::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-color); 
+    opacity: 0.7; 
+}
+
+/* Submit Button Styling (FormSpree) */
+.formspree-submit {
+    background-color: var(--primary-color); /* Uses primary theme color */
+    color: var(--secondary-color); /* Uses secondary theme color (for text) */
+    border: none;
+    padding: 15px 30px; 
+    border-radius: 5px;
+    font-size: 1.1em; 
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: center; /* Key Fix: Centers the button */
+    width: auto; 
+    min-width: 200px; /* Key Fix: Ensures minimum size */
+}
+
+.formspree-submit:hover {
+    background-color: #0056b3; 
+    transform: translateY(-2px); 
+}
+
+/* --- Keyframe Animations --- */
+
+/* Gradient movement for the title */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Progress bar loading animation */
+@keyframes loadProgress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* Text fade in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Page fade out animation */
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* Response for smaller screens */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+        margin-top: 30px;
+    }
+    .form-container h3 {
+        font-size: 1.3em;
+        margin-bottom: 20px;
+    }
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        padding: 12px;
+        font-size: 1em;
+    }
+    .formspree-submit {
+        padding: 12px 25px;
+        font-size: 1em;
+        min-width: 150px;
+    }
+}
